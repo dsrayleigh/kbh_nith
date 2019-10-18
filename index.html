@@ -1,0 +1,44 @@
+<html>
+    <body>
+        <style>
+            body {
+                margin: 0;
+            }
+            #controls {
+                z-index: 10;
+                position: absolute;
+            }
+            #pulser {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background: red;
+                animation-name: pulser;
+                animation-duration: 0.05s;
+                animation-iteration-count: infinite;
+                animation-direction: alternate;
+            }
+            @keyframes pulser {
+                0%   {background-color: blueviolet;}
+                49%   {background-color: black;}
+                50%   {background-color: black;}
+                100%   {background-color: black;}
+            }
+        </style>
+        <div id="controls">
+            <span id="hertz">10</span>Hz
+            <input value="10" min="1" max="25" oninput="setHertz(this)" type="range" step="1">
+        </div>
+        <div id="pulser"></div>
+        <script>
+            alert('Click on this to get a trip')
+            function setHertz(ele) {
+                var hertz = ele.value;
+                document.getElementById('hertz').innerText = hertz;
+                var seconds = 1 / parseInt(hertz) / 2;
+                console.log(seconds)
+                document.getElementById('pulser').style.animationDuration = seconds + 's'
+            }
+        </script>
+    </body>
+</html>
