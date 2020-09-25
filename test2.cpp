@@ -2,6 +2,6 @@
 using namespace std;
 int main (){
 
-   cout<<"I want a M sized t shirt";
+   cout<<"say hello to the world";
 
 }
